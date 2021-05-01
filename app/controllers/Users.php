@@ -24,10 +24,20 @@
           'email' => trim($_POST['email']),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
+          'address' => trim($_POST['address']),
+          'phone' => trim($_POST['phone']),
+          'state' => trim($_POST['state']),
+          'city' => trim($_POST['city']),
+          'zip' => trim($_POST['zip']),
           'name_err' => '',
           'email_err' => '',
           'password_err' => '',
-          'confirm_password_err' => ''
+          'confirm_password_err' => '',
+          'address_err' => '',
+          'phone_err' => '',
+          'state_err' => '',
+          'city_err' => '',
+          'zip_err' => '',
         ];
 
         // Validate email
@@ -59,9 +69,34 @@
                 $data['confirm_password_err'] = 'Password do not match.';
             }
         }
-         
+
+        // Validate address
+        if(empty($data['address'])){
+          $address_err = 'Please enter a address.';     
+        }
+        
+        // Validate phone
+        if(empty($data['phone'])){
+          $phone_err = 'Please enter a phone.';     
+        }
+
+        // Validate state
+        if(empty($data['state'])){
+          $state_err = 'Please enter a state.';     
+        }
+
+        // Validate city
+        if(empty($data['city'])){
+          $city_err = 'Please enter a city.';     
+        }
+
+        // Validate zip
+        if(empty($data['zip'])){
+          $zip_err = 'Please enter a zip.';     
+        }
+        
         // Make sure errors are empty
-        if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+        if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) && empty($data['address_err']) && empty($data['phone_err']) && empty($data['state_err']) && empty($data['city_err']) && empty($data['zip_err'])){
           // SUCCESS - Proceed to insert
 
           // Hash Password
@@ -89,10 +124,20 @@
           'email' => '',
           'password' => '',
           'confirm_password' => '',
+          'address' => '',
+          'phone' => '',
+          'state' => '',
+          'city' => '',
+          'zip' => '',
           'name_err' => '',
           'email_err' => '',
           'password_err' => '',
-          'confirm_password_err' => ''
+          'confirm_password_err' => '',
+          'address_err' => '',
+          'phone_err' => '',
+          'state_err' => '',
+          'city_err' => '',
+          'zip_err' => ''
         ];
 
         // Load View
